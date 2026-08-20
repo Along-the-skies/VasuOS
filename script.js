@@ -15,6 +15,8 @@ let startMouseX = 0;
 let startMouseY = 0;
 
 
+
+
 function moveWindow(event) {
 
     let newLeft = event.clientX - mouseOffsetX;
@@ -165,3 +167,5 @@ terminalButton.addEventListener("click", function() {
     terminalWindow.style.display = "block";
 
 });
+
+import "./terminal.js";
