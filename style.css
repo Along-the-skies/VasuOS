@@ -164,3 +164,40 @@ body {
     cursor: se-resize;
     user-select: none;
 }
+
+#terminal-window {
+    display: none;
+}
+
+.terminal-content {
+    background: #0b0b0b;
+    color: #f1f1f1;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 16px;
+}
+
+.terminal-output p {
+    margin : 4px 0;
+}
+
+.terminal-input {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.terminal-input span {
+    color: #e3211a;
+    white-space: nowrap;
+}
+
+.terminal-input input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #f1f1f1;
+    font-family: inherit;
+    font-size: inherit;
+}
