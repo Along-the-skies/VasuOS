@@ -7,6 +7,7 @@ terminalInput.addEventListener("keydown",function(event){
     }
 
     let command = terminalInput.value.trim();
+    terminalOutput.innerHTML +=`vasu@vasuos:~$${command}`
 
     if (command==="help"){
         terminalOutput.innerHTML +=`
