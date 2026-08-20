@@ -37,7 +37,6 @@ body {
 
 #dock {
     position: fixed;
-
     bottom: 20px;
     left: 50%;
 
@@ -62,7 +61,6 @@ body {
     justify-content: center;
 
     border-radius: 12px;
-
     cursor: pointer;
 
     transition: transform 0.2s ease, background-color 0.2s ease;
@@ -75,7 +73,6 @@ body {
 
 .window {
     position: absolute;
-
     top: 120px;
     left: 50%;
 
@@ -102,6 +99,7 @@ body {
 
     background-color: #1c1c21;
     border-bottom: 1px solid #332027;
+
     user-select: none;
 }
 
@@ -135,10 +133,6 @@ body {
     transition: background-color 0.2s ease;
 }
 
-.window-content {
-    padding : 20px;
-}
-
 .window-controls button:hover {
     background-color: #332027;
     color: #f2f2f2;
@@ -149,14 +143,17 @@ body {
     color: #ffffff;
 }
 
+.window-content {
+    padding: 20px;
+}
+
 .resize-handle {
     position: absolute;
+    right: 0;
+    bottom: 0;
 
     width: 15px;
     height: 15px;
-
-    right: 0;
-    bottom: 0;
 
     background-color: #4d333874;
     border-radius: 3px;
@@ -170,20 +167,23 @@ body {
 }
 
 .terminal-content {
+    padding: 16px;
+
     background: #0b0b0b;
     color: #f1f1f1;
+
     font-family: 'Courier New', Courier, monospace;
-    padding: 16px;
 }
 
 .terminal-output p {
-    margin : 4px 0;
+    margin: 4px 0;
 }
 
 .terminal-input {
     display: flex;
     align-items: center;
     gap: 8px;
+
     margin-top: 12px;
 }
 
@@ -194,10 +194,21 @@ body {
 
 .terminal-input input {
     flex: 1;
+
     background: transparent;
     border: none;
     outline: none;
+
     color: #f1f1f1;
+
     font-family: inherit;
     font-size: inherit;
+}
+
+.window {
+    z-index: 1;
+}
+
+.window-active {
+    z-index: 10;
 }

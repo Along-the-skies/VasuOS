@@ -169,3 +169,4 @@ terminalButton.addEventListener("click", function() {
 });
 
 import "./terminal.js";
+import "./clock.js"
