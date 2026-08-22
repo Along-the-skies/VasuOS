@@ -36,11 +36,10 @@
                     </span>
                 </div>
             </div>
-            
+
             <div class="window">
 
                 <div class="window-header">
-
                     <div class="window-title">
                         <i class="fa-solid fa-folder"></i>
                         Files
@@ -51,19 +50,52 @@
                         <button>□</button>
                         <button>×</button>
                     </div>
-
                 </div>
 
-                <div class="window-content">
-                    <h2>Files</h2>
-                    <p>Welcome to VasuOS Files.</p>
+                <div class="window-content" id="files-content">
+
+                    <div class="file-item folder">
+                        <i class="fa-solid fa-folder"></i>
+                        <span>Documents</span>
+                    </div>
+
+                    <div class="file-item folder downloads">
+                        <i class="fa-solid fa-folder"></i>
+                        <span>Downloads</span>
+                    </div>
+
+                    <div class="file-item">
+                        <i class="fa-solid fa-file"></i>
+                        <span>notes.txt</span>
+                    </div>
+
                 </div>
 
                 <div class="resize-handle"></div>
 
             </div>
 
+            <div class="app-launcher" id="app-launcher">
+
+                <h2>VasuOS</h2>
+
+                <div class="app-item">
+                    <i class="fa-solid fa-folder"></i>
+                    <span>Files</span>
+                </div>
+
+                <div class="app-item">
+                    <i class="fa-solid fa-terminal"></i>
+                    <span>Terminal</span>
+                </div>
+
+                <div class="app-item">
+                    <i class="fa-solid fa-gear"></i>
+                    <span>Settings</span>
+                </div></div>
+
             <div class="window" id="terminal-window">
+
                 <div class="window-header">
 
                     <div class="window-title">
@@ -82,7 +114,7 @@
                 <div class="window-content terminal-content">
 
                     <div class="terminal-output">
-                        <h3>VasuOS Terminal</3>
+                        <h3>VasuOS Terminal</h3>
                         <p>Type <strong>help</strong> to see available commands.</p>
                     </div>
 
@@ -92,6 +124,58 @@
                     </div>
 
                 </div>
+
+                <div class="resize-handle"></div>
+
+            </div>
+
+            <div class="window" id="file-viewer-window">
+
+                <div class="window-header">
+
+                    <div class="window-title">
+                        <i class="fa-solid fa-file"></i>
+                        <span id="file-viewer-title">File Viewer</span>
+                    </div>
+
+                    <div class="window-controls">
+                        <button>−</button>
+                        <button>□</button>
+                        <button>×</button>
+                    </div>
+
+                </div>
+
+                <div class="window-content file-viewer-content">
+                    <pre id="file-viewer-content">No file selected.</pre>
+                </div>
+
+                <div class="resize-handle"></div>
+
+            </div>
+
+            <div class="window" id="image-viewer-window">
+
+                <div class="window-header">
+
+                    <div class="window-title">
+                        <i class="fa fa-solid fa-image"></i>
+                        <span id="image-viewer-title">Image Viewer</span>
+                    </div>
+
+                    <div class="window-controls">
+                        <button>−</button>
+                        <button>□</button>
+                        <button>×</button>
+                    </div>
+
+                </div>
+
+                    <div class="window-content image-viewer-content">
+
+                        <img id="image-viewer-image" src="" alt="">
+
+                    </div>
 
                 <div class="resize-handle"></div>
             </div>

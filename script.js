@@ -2,10 +2,8 @@ let windows = document.querySelectorAll(".window");
 
 let filesButton = document.querySelector(".dock-item:nth-child(3)");
 let terminalButton = document.querySelector(".dock-item:nth-child(4)");
-let appLauncherButton = document.querySelector(".dock-item:nth-child(1)")
 
 let terminalWindow = document.querySelector("#terminal-window");
-let appLauncherWindow = document.querySelector("#app-launcher")
 
 let activeWindow = null;
 
@@ -16,8 +14,6 @@ let startWidth = 0;
 let startHeight = 0;
 let startMouseX = 0;
 let startMouseY = 0;
-
-
 
 
 function moveWindow(event) {
@@ -78,18 +74,23 @@ windows.forEach(function(windowElement) {
 
 
     closeButton.addEventListener("click", function() {
+
         windowElement.style.display = "none";
+
     });
 
 
     minimizeButton.addEventListener("click", function() {
+
         windowElement.style.display = "none";
+
     });
 
 
     maximizeButton.addEventListener("click", function() {
 
         if (windowElement.dataset.maximized === "true") {
+
             windowElement.style.width = "";
             windowElement.style.height = "";
             windowElement.style.top = "";
@@ -97,7 +98,9 @@ windows.forEach(function(windowElement) {
             windowElement.style.transform = "";
 
             windowElement.dataset.maximized = "false";
+
         } else {
+
             windowElement.style.width = "100%";
             windowElement.style.height = "calc(100% - 42px)";
             windowElement.style.top = "42px";
@@ -105,8 +108,10 @@ windows.forEach(function(windowElement) {
             windowElement.style.transform = "none";
 
             windowElement.dataset.maximized = "true";
-        }});
-    
+
+        }
+
+    });
 
 
     windowHeader.addEventListener("mousedown", function(event) {
@@ -147,11 +152,15 @@ windows.forEach(function(windowElement) {
 
     });
 
-});
 
-windowElement.addEventListener("mousedown", function() {
+    windowElement.addEventListener("mousedown", function() {
 
-    windowElement.style.zIndex = "2";
+        windows.forEach(function(otherWindow){
+            otherWindow.style.zIndex = "1";
+        });
+
+        windowElement.style.zIndex = "2"
+    });
 
 });
 
@@ -177,5 +186,8 @@ terminalButton.addEventListener("click", function() {
 
 });
 
-import "./terminal.js";
-import "./clock.js"
+
+import "./js/terminal.js";
+import "./js/clock.js";
+import "./js/startmenu.js"
+import "./js/files.js"

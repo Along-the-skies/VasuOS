@@ -158,7 +158,7 @@ body {
     background-color: #4d333874;
     border-radius: 3px;
 
-    cursor: se-resize;
+    cursor: nwse-resize;
     user-select: none;
 }
 
@@ -211,4 +211,146 @@ body {
 
 .window-active {
     z-index: 10;
+}
+
+.app-launcher {
+    position: fixed;
+
+    bottom: 82px;
+    left: 20px;
+
+    width: 220px;
+    padding: 16px;
+
+    background-color: #151518;
+    border: 1px solid #332027;
+    border-radius: 14px;
+
+    display: none;
+
+    
+}
+
+.app-launcher h2 {
+    margin-top: 0;
+}
+
+.app-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 10px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+}
+
+.app-item:hover {
+    background-color: #1c1c21;
+}
+
+.file-item {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 10px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+}
+
+.file-item:hover {
+    background-color: #1c1c21;
+}
+
+.file-item i {
+    width: 20px;
+    text-align: center;
+}
+
+#files-content {
+    min-height: 200px;
+}
+
+#back-button {
+    padding: 7px 12px;
+
+    border: 1px solid #332027;
+    border-radius: 7px;
+
+    background-color: #1c1c21;
+    color: #f2f2f2;
+
+    cursor: pointer;
+    font-family: inherit;
+
+    transition: background-color 0.2s ease;
+
+}
+
+#back-button:hover {
+    background-color: #332027;
+}
+
+#file-viewer-window {
+    display: none;
+}
+
+.file-viewer-content {
+    min-height: 200px;
+    background-color: #0f0f12;
+}
+
+#file-viewer-content {
+    margin: 0;
+
+    white-space: pre-wrap;
+    word-wrap: break-word;
+
+    font-family: 'Courier New', Courier, monospace;
+    color: #f1f1f1;
+}
+
+#image-viewer-window {
+    display: none;
+
+    width: 600px;
+    min-width: 350px;
+
+    max-width: 75vw;
+    max-height: 70vh;
+}
+
+.image-viewer-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 420px;
+
+    padding: 16px;
+
+    box-sizing: border-box;
+
+    background-color: #0b0b0b;
+
+    overflow: hidden;
+}
+
+#image-viewer-image {
+    display: block;
+
+    max-width: 100%;
+    max-height: 100%;
+
+    width: auto;
+    height: auto;
+
+    object-fit: contain;
 }
