@@ -8,7 +8,7 @@ const fileSystem = [
                 "type": "file",
                 "file_type": "text",
                 "path": "Files/Documents/example.md",
-                "content": ""
+                "content": "Glorius Purpose ! \ud83d\udc7f"
             },
             {
                 "name": "notes.txt",
