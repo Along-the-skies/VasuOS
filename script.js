@@ -2,7 +2,10 @@ let windows = document.querySelectorAll(".window");
 
 let filesButton = document.querySelector(".dock-item:nth-child(3)");
 let terminalButton = document.querySelector(".dock-item:nth-child(4)");
+let appLauncherButton = document.querySelector(".dock-item:nth-child(1)")
+
 let terminalWindow = document.querySelector("#terminal-window");
+let appLauncherWindow = document.querySelector("#app-launcher")
 
 let activeWindow = null;
 
@@ -143,6 +146,12 @@ windows.forEach(function(windowElement) {
         document.addEventListener("mousemove", resizeWindow);
 
     });
+
+});
+
+windowElement.addEventListener("mousedown", function() {
+
+    windowElement.style.zIndex = "2";
 
 });
 

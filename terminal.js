@@ -2,7 +2,7 @@ let terminalInput = document.querySelector(".terminal-input input");
 let terminalOutput = document.querySelector(".terminal-output");
 
 terminalInput.addEventListener("keydown",function(event){
-    if (event.key != "Enter") {
+    if (event.key !== "Enter") {
         return;
     }
 
