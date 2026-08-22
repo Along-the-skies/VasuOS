@@ -16,6 +16,41 @@ let startMouseX = 0;
 let startMouseY = 0;
 
 
+function focusWindow(windowElement) {
+
+    windows.forEach(function(otherWindow) {
+        otherWindow.style.zIndex = "1";
+    });
+
+    windowElement.style.zIndex = "2";
+}
+
+
+function setDockRunning(dockItem, running) {
+
+    if (running) {
+        dockItem.classList.add("running");
+    } else {
+        dockItem.classList.remove("running");
+    }
+
+}
+
+
+function resetWindow(windowElement) {
+
+    windowElement.style.display = "none";
+
+    windowElement.style.width = "";
+    windowElement.style.height = "";
+    windowElement.style.top = "";
+    windowElement.style.left = "";
+    windowElement.style.transform = "";
+
+    windowElement.dataset.maximized = "false";
+}
+
+
 function moveWindow(event) {
 
     let newLeft = event.clientX - mouseOffsetX;
@@ -75,7 +110,27 @@ windows.forEach(function(windowElement) {
 
     closeButton.addEventListener("click", function() {
 
-        windowElement.style.display = "none";
+        if (windowElement.id === "files-window") {
+
+            document.dispatchEvent(
+                new Event("files-reset")
+            );
+
+            setDockRunning(filesButton, false);
+        }
+
+
+        if (windowElement.id === "terminal-window") {
+
+            document.dispatchEvent(
+                new Event("terminal-reset")
+            );
+
+            setDockRunning(terminalButton, false);
+        }
+
+
+        resetWindow(windowElement);
 
     });
 
@@ -118,16 +173,27 @@ windows.forEach(function(windowElement) {
 
         activeWindow = windowElement;
 
-        let windowPosition = windowElement.getBoundingClientRect();
+        let windowPosition =
+            windowElement.getBoundingClientRect();
 
-        windowElement.style.left = windowPosition.left + "px";
-        windowElement.style.top = windowPosition.top + "px";
+        windowElement.style.left =
+            windowPosition.left + "px";
+
+        windowElement.style.top =
+            windowPosition.top + "px";
+
         windowElement.style.transform = "none";
 
-        mouseOffsetX = event.clientX - windowElement.offsetLeft;
-        mouseOffsetY = event.clientY - windowElement.offsetTop;
+        mouseOffsetX =
+            event.clientX - windowElement.offsetLeft;
 
-        document.addEventListener("mousemove", moveWindow);
+        mouseOffsetY =
+            event.clientY - windowElement.offsetTop;
+
+        document.addEventListener(
+            "mousemove",
+            moveWindow
+        );
 
     });
 
@@ -136,30 +202,38 @@ windows.forEach(function(windowElement) {
 
         activeWindow = windowElement;
 
-        let windowPosition = windowElement.getBoundingClientRect();
+        let windowPosition =
+            windowElement.getBoundingClientRect();
 
-        windowElement.style.left = windowPosition.left + "px";
-        windowElement.style.top = windowPosition.top + "px";
+        windowElement.style.left =
+            windowPosition.left + "px";
+
+        windowElement.style.top =
+            windowPosition.top + "px";
+
         windowElement.style.transform = "none";
 
-        startWidth = windowElement.offsetWidth;
-        startHeight = windowElement.offsetHeight;
+        startWidth =
+            windowElement.offsetWidth;
+
+        startHeight =
+            windowElement.offsetHeight;
 
         startMouseX = event.clientX;
         startMouseY = event.clientY;
 
-        document.addEventListener("mousemove", resizeWindow);
+        document.addEventListener(
+            "mousemove",
+            resizeWindow
+        );
 
     });
 
 
     windowElement.addEventListener("mousedown", function() {
 
-        windows.forEach(function(otherWindow){
-            otherWindow.style.zIndex = "1";
-        });
+        focusWindow(windowElement);
 
-        windowElement.style.zIndex = "2"
     });
 
 });
@@ -167,15 +241,28 @@ windows.forEach(function(windowElement) {
 
 document.addEventListener("mouseup", function() {
 
-    document.removeEventListener("mousemove", moveWindow);
-    document.removeEventListener("mousemove", resizeWindow);
+    document.removeEventListener(
+        "mousemove",
+        moveWindow
+    );
+
+    document.removeEventListener(
+        "mousemove",
+        resizeWindow
+    );
 
 });
 
 
 filesButton.addEventListener("click", function() {
 
-    windows[0].style.display = "block";
+    let filesWindow = document.querySelector("#files-window");
+
+    filesWindow.style.display = "block";
+
+    focusWindow(filesWindow);
+
+    setDockRunning(filesButton, true);
 
 });
 
@@ -184,10 +271,14 @@ terminalButton.addEventListener("click", function() {
 
     terminalWindow.style.display = "block";
 
+    focusWindow(terminalWindow);
+
+    setDockRunning(terminalButton, true);
+
 });
 
 
 import "./js/terminal.js";
 import "./js/clock.js";
-import "./js/startmenu.js"
-import "./js/files.js"
+import "./js/startmenu.js";
+import "./js/files.js";

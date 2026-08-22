@@ -1,6 +1,23 @@
 let terminalInput = document.querySelector(".terminal-input input");
 let terminalOutput = document.querySelector(".terminal-output");
 
+
+function resetTerminal() {
+
+    let terminalOutput = document.querySelector(".terminal-output");
+    let terminalInput = document.querySelector(".terminal-input input");
+
+    terminalOutput.innerHTML = `
+        <h3>VasuOS Terminal</h3>
+        <p>Type <strong>help</strong> to see available commands.</p>
+    `;
+
+    terminalInput.value = "";
+
+}
+
+
+
 terminalInput.addEventListener("keydown",function(event){
     if (event.key !== "Enter") {
         return;
@@ -41,3 +58,9 @@ terminalInput.addEventListener("keydown",function(event){
 
     terminalInput.value="";
 })
+
+document.addEventListener("terminal-reset", function() {
+
+    resetTerminal();
+
+});

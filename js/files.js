@@ -145,3 +145,11 @@ function renderFolder(folder) {
 
 
 renderFiles(fileSystem);
+function resetFiles() {
+    renderFiles(fileSystem);
+}
+document.addEventListener("files-reset", function() {
+
+    resetFiles();
+
+});

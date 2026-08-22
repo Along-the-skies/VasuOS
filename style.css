@@ -53,6 +53,8 @@ body {
 }
 
 .dock-item {
+    position: relative;
+
     width: 42px;
     height: 42px;
 
@@ -71,6 +73,20 @@ body {
     transform: translateY(-3px);
 }
 
+.dock-item.running::after {
+    content: "";
+
+    position: absolute;
+    bottom: 3px;
+
+    width: 5px;
+    height: 5px;
+
+    border-radius: 50%;
+
+    background-color: #e3211a;
+}
+
 .window {
     position: absolute;
     top: 120px;
@@ -86,6 +102,9 @@ body {
     border-radius: 14px;
 
     overflow: hidden;
+
+    z-index: 1;
+    display: none;
 }
 
 .window-header {
@@ -205,10 +224,6 @@ body {
     font-size: inherit;
 }
 
-.window {
-    z-index: 1;
-}
-
 .window-active {
     z-index: 10;
 }
@@ -227,8 +242,6 @@ body {
     border-radius: 14px;
 
     display: none;
-
-    
 }
 
 .app-launcher h2 {
@@ -290,7 +303,6 @@ body {
     font-family: inherit;
 
     transition: background-color 0.2s ease;
-
 }
 
 #back-button:hover {
@@ -303,6 +315,7 @@ body {
 
 .file-viewer-content {
     min-height: 200px;
+
     background-color: #0f0f12;
 }
 
