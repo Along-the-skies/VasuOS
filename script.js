@@ -2,6 +2,9 @@ let windows = document.querySelectorAll(".window");
 
 let filesButton = document.querySelector(".dock-item:nth-child(3)");
 let terminalButton = document.querySelector(".dock-item:nth-child(4)");
+let creditsButton = document.querySelector(".dock-item:nth-child(5)");
+let creditsWindow = document.querySelector("#credits-window");
+
 
 let terminalWindow = document.querySelector("#terminal-window");
 
@@ -284,6 +287,14 @@ terminalButton.addEventListener("click", function() {
     focusWindow(terminalWindow);
 
     setDockRunning(terminalButton, true);
+
+});
+
+creditsButton.addEventListener("click", function() {
+
+    creditsWindow.style.display = "block";
+
+    focusWindow(creditsWindow);
 
 });
 

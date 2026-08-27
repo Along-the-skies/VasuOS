@@ -1,24 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
     <head>
+
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <title>VasuOS</title>
 
         <link rel="stylesheet" href="style.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+        >
+
     </head>
 
+
     <body>
+
         <div id="desktop">
 
+
             <div id="top-bar">
+
                 <div id="system-name">
                     VasuOS
                 </div>
 
                 <div id="system-status">
+
                     <span>
                         <i class="fa-solid fa-wifi"></i>
                     </span>
@@ -34,12 +46,16 @@
                     <span id="clock">
                         18:42
                     </span>
+
                 </div>
+
             </div>
+
 
             <div class="window" id="files-window">
 
                 <div class="window-header">
+
                     <div class="window-title">
                         <i class="fa-solid fa-folder"></i>
                         Files
@@ -50,6 +66,7 @@
                         <button>□</button>
                         <button>×</button>
                     </div>
+
                 </div>
 
                 <div class="window-content" id="files-content">
@@ -65,8 +82,10 @@
                     </div>
 
                     <div class="file-item">
+
                         <i class="fa-solid fa-file"></i>
                         <span>notes.txt</span>
+
                     </div>
 
                 </div>
@@ -74,138 +93,296 @@
                 <div class="resize-handle"></div>
 
             </div>
+
 
             <div class="app-launcher" id="app-launcher">
 
                 <h2>VasuOS</h2>
 
                 <div class="app-item">
+
                     <i class="fa-solid fa-folder"></i>
                     <span>Files</span>
+
                 </div>
 
                 <div class="app-item">
+
                     <i class="fa-solid fa-terminal"></i>
                     <span>Terminal</span>
+
                 </div>
 
                 <div class="app-item">
+
                     <i class="fa-solid fa-gear"></i>
                     <span>Settings</span>
-                </div></div>
+
+                </div>
+
+            </div>
+
 
             <div class="window" id="terminal-window">
 
                 <div class="window-header">
 
                     <div class="window-title">
+
                         <i class="fa-solid fa-terminal"></i>
                         Terminal
+
                     </div>
 
                     <div class="window-controls">
+
                         <button>−</button>
                         <button>□</button>
                         <button>×</button>
+
                     </div>
 
                 </div>
+
 
                 <div class="window-content terminal-content">
 
                     <div class="terminal-output">
+
                         <h3>VasuOS Terminal</h3>
-                        <p>Type <strong>help</strong> to see available commands.</p>
+
+                        <p>
+                            Type <strong>help</strong>
+                            to see available commands.
+                        </p>
+
                     </div>
 
+
                     <div class="terminal-input">
-                        <span>vasu@vasuos:~$</span>
-                        <input type="text" autocomplete="off" autofocus>
+
+                        <span>
+                            vasu@vasuos:~$
+                        </span>
+
+                        <input
+                            type="text"
+                            autocomplete="off"
+                            autofocus
+                        >
+
                     </div>
 
                 </div>
 
+
                 <div class="resize-handle"></div>
 
             </div>
+
+
+            <div class="window" id="credits-window">
+
+                <div class="window-header">
+
+                    <div class="window-title">
+
+                        <i class="fa-solid fa-gear"></i>
+                        Credits
+
+                    </div>
+
+                    <div class="window-controls">
+
+                        <button>−</button>
+                        <button>□</button>
+                        <button>×</button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="window-content credits-content">
+
+                    <h2>VasuOS</h2>
+
+                    <p>
+                        A Web-Based Operating System
+                    </p>
+
+
+                    <hr>
+
+
+                    <h3>Creator</h3>
+
+                    <p>
+                        Vasudev
+                    </p>
+
+
+                    <h3>Design & Development</h3>
+
+                    <p>
+                        Vasudev
+                    </p>
+
+
+                    <h3>Technologies</h3>
+
+                    <p>
+                        HTML · CSS · JavaScript
+                    </p>
+
+
+                    <h3>Project</h3>
+
+                    <p>
+                        Built for Hack Club Stardance
+                    </p>
+
+                </div>
+
+
+                <div class="resize-handle"></div>
+
+            </div>
+
 
             <div class="window" id="file-viewer-window">
 
                 <div class="window-header">
 
                     <div class="window-title">
+
                         <i class="fa-solid fa-file"></i>
-                        <span id="file-viewer-title">File Viewer</span>
+
+                        <span id="file-viewer-title">
+                            File Viewer
+                        </span>
+
                     </div>
 
+
                     <div class="window-controls">
+
                         <button>−</button>
                         <button>□</button>
                         <button>×</button>
+
                     </div>
 
                 </div>
 
+
                 <div class="window-content file-viewer-content">
-                    <pre id="file-viewer-content">No file selected.</pre>
+
+                    <pre id="file-viewer-content">
+No file selected.
+                    </pre>
+
                 </div>
+
 
                 <div class="resize-handle"></div>
 
             </div>
+
 
             <div class="window" id="image-viewer-window">
 
                 <div class="window-header">
 
                     <div class="window-title">
+
                         <i class="fa fa-solid fa-image"></i>
-                        <span id="image-viewer-title">Image Viewer</span>
+
+                        <span id="image-viewer-title">
+                            Image Viewer
+                        </span>
+
                     </div>
 
+
                     <div class="window-controls">
+
                         <button>−</button>
                         <button>□</button>
                         <button>×</button>
+
                     </div>
 
                 </div>
 
-                    <div class="window-content image-viewer-content">
 
-                        <img id="image-viewer-image" src="" alt="">
+                <div class="window-content image-viewer-content">
 
-                    </div>
+                    <img
+                        id="image-viewer-image"
+                        src=""
+                        alt=""
+                    >
+
+                </div>
+
 
                 <div class="resize-handle"></div>
+
             </div>
+
 
             <div id="dock">
 
                 <div class="dock-item">
+
                     <i class="fa-solid fa-house"></i>
+
                 </div>
 
-                <div class="dock-item">
+
+                <a
+                    class="dock-item"
+                    href="https://www.google.com"
+                    target="_blank"
+                >
+
                     <i class="fa-solid fa-magnifying-glass"></i>
-                </div>
+
+                </a>
+
 
                 <div class="dock-item">
+
                     <i class="fa-solid fa-folder"></i>
+
                 </div>
 
+
                 <div class="dock-item">
+
                     <i class="fa-solid fa-terminal"></i>
+
                 </div>
 
+
                 <div class="dock-item">
+
                     <i class="fa-solid fa-gear"></i>
+
                 </div>
 
             </div>
 
+
         </div>
 
-        <script type="module" src="script.js"></script>
+
+        <script
+            type="module"
+            src="script.js"
+        ></script>
+
     </body>
+
 </html>

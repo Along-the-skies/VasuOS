@@ -286,6 +286,8 @@ body {
     text-align: center;
 }
 
+
+
 #files-content {
     min-height: 200px;
 }
@@ -366,4 +368,54 @@ body {
     height: auto;
 
     object-fit: contain;
+}
+
+.dock-item a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.dock-item:visited {
+    color: inherit;
+}
+
+#credits-window {
+    width: 500px;
+    min-width: 350px;
+}
+
+.credits-content {
+    text-align: center;
+    padding: 30px;
+    background-color: #0f0f12;
+}
+
+
+.credits-content h2 {
+    margin: 0 0 6px 0;
+    font-size: 28px;
+}
+
+.credits-content > p {
+    margin-top: 0;
+    color: #a6a6ad;
+}
+
+
+.credits-content hr {
+    border: none;
+    border-top: 1px solid #332027;
+    margin: 24px 0;
+}
+
+.credits-content h3 {
+    margin: 18px 0 5px 0;
+    font-size: 14px;
+    font-weight: 500;
+    color: #e3211a;
+}
+
+.credits-content p {
+    margin: 0;
+    color: #f2f2f2;
 }
