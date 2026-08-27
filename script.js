@@ -176,13 +176,39 @@ function setupWindow(windowElement) {
 
 
     closeButton.addEventListener(
-        "click",
-        function() {
+    "click",
+    function() {
 
-            resetWindow(windowElement);
+        resetWindow(windowElement);
+
+        if (windowElement.id === "files-window") {
+
+            setDockRunning(
+                filesButton,
+                false
+            );
+
+            document.dispatchEvent(
+                new Event("files-reset")
+            );
 
         }
-    );
+
+        if (windowElement.id === "terminal-window") {
+
+            setDockRunning(
+                terminalButton,
+                false
+            );
+
+            document.dispatchEvent(
+                new Event("terminal-reset")
+            );
+
+        }
+
+    }
+);
 
 
     minimizeButton.addEventListener(
