@@ -18,7 +18,7 @@ let startMouseY = 0;
 
 function focusWindow(windowElement) {
 
-    windows.forEach(function(otherWindow) {
+    document.querySelectorAll(".window").forEach(function(otherWindow) {
         otherWindow.style.zIndex = "1";
     });
 
@@ -56,8 +56,11 @@ function moveWindow(event) {
     let newLeft = event.clientX - mouseOffsetX;
     let newTop = event.clientY - mouseOffsetY;
 
-    let maxLeft = window.innerWidth - activeWindow.offsetWidth;
-    let maxTop = window.innerHeight - activeWindow.offsetHeight;
+    let maxLeft =
+        window.innerWidth - activeWindow.offsetWidth;
+
+    let maxTop =
+        window.innerHeight - activeWindow.offsetHeight;
 
     if (newLeft < 0) {
         newLeft = 0;
@@ -82,8 +85,11 @@ function moveWindow(event) {
 
 function resizeWindow(event) {
 
-    let newWidth = startWidth + (event.clientX - startMouseX);
-    let newHeight = startHeight + (event.clientY - startMouseY);
+    let newWidth =
+        startWidth + (event.clientX - startMouseX);
+
+    let newHeight =
+        startHeight + (event.clientY - startMouseY);
 
     activeWindow.style.width = newWidth + "px";
     activeWindow.style.height = newHeight + "px";
@@ -104,8 +110,11 @@ windows.forEach(function(windowElement) {
         ".window-controls button:first-child"
     );
 
-    let windowHeader = windowElement.querySelector(".window-header");
-    let resizeHandle = windowElement.querySelector(".resize-handle");
+    let windowHeader =
+        windowElement.querySelector(".window-header");
+
+    let resizeHandle =
+        windowElement.querySelector(".resize-handle");
 
 
     closeButton.addEventListener("click", function() {
@@ -256,7 +265,8 @@ document.addEventListener("mouseup", function() {
 
 filesButton.addEventListener("click", function() {
 
-    let filesWindow = document.querySelector("#files-window");
+    let filesWindow =
+        document.querySelector("#files-window");
 
     filesWindow.style.display = "block";
 
@@ -274,6 +284,150 @@ terminalButton.addEventListener("click", function() {
     focusWindow(terminalWindow);
 
     setDockRunning(terminalButton, true);
+
+});
+
+
+function setupViewerWindow(windowElement) {
+
+    let closeButton = windowElement.querySelector(
+        ".window-controls button:last-child"
+    );
+
+    let maximizeButton = windowElement.querySelector(
+        ".window-controls button:nth-child(2)"
+    );
+
+    let minimizeButton = windowElement.querySelector(
+        ".window-controls button:first-child"
+    );
+
+    let windowHeader =
+        windowElement.querySelector(".window-header");
+
+    let resizeHandle =
+        windowElement.querySelector(".resize-handle");
+
+
+    closeButton.addEventListener("click", function() {
+
+        resetWindow(windowElement);
+
+    });
+
+
+    minimizeButton.addEventListener("click", function() {
+
+        windowElement.style.display = "none";
+
+    });
+
+
+    maximizeButton.addEventListener("click", function() {
+
+        if (windowElement.dataset.maximized === "true") {
+
+            windowElement.style.width = "";
+            windowElement.style.height = "";
+            windowElement.style.top = "";
+            windowElement.style.left = "";
+            windowElement.style.transform = "";
+
+            windowElement.dataset.maximized = "false";
+
+        } else {
+
+            windowElement.style.width = "100%";
+            windowElement.style.height = "calc(100% - 42px)";
+            windowElement.style.top = "42px";
+            windowElement.style.left = "0";
+            windowElement.style.transform = "none";
+
+            windowElement.dataset.maximized = "true";
+
+        }
+
+    });
+
+
+    windowHeader.addEventListener("mousedown", function(event) {
+
+        activeWindow = windowElement;
+
+        let windowPosition =
+            windowElement.getBoundingClientRect();
+
+        windowElement.style.left =
+            windowPosition.left + "px";
+
+        windowElement.style.top =
+            windowPosition.top + "px";
+
+        windowElement.style.transform = "none";
+
+        mouseOffsetX =
+            event.clientX - windowElement.offsetLeft;
+
+        mouseOffsetY =
+            event.clientY - windowElement.offsetTop;
+
+        document.addEventListener(
+            "mousemove",
+            moveWindow
+        );
+
+    });
+
+
+    resizeHandle.addEventListener("mousedown", function(event) {
+
+        activeWindow = windowElement;
+
+        let windowPosition =
+            windowElement.getBoundingClientRect();
+
+        windowElement.style.left =
+            windowPosition.left + "px";
+
+        windowElement.style.top =
+            windowPosition.top + "px";
+
+        windowElement.style.transform = "none";
+
+        startWidth =
+            windowElement.offsetWidth;
+
+        startHeight =
+            windowElement.offsetHeight;
+
+        startMouseX = event.clientX;
+        startMouseY = event.clientY;
+
+        document.addEventListener(
+            "mousemove",
+            resizeWindow
+        );
+
+    });
+
+
+    windowElement.addEventListener("mousedown", function() {
+
+        focusWindow(windowElement);
+
+    });
+
+
+    focusWindow(windowElement);
+
+}
+
+
+document.addEventListener("window-created", function(event) {
+
+    windows = document.querySelectorAll(".window");
+
+    setupViewerWindow(event.detail);
 
 });
 
