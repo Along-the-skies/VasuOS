@@ -11,7 +11,7 @@ I read it , Searched Yt tutorials and completed the project Today **27-08-2026**
 
 - Referred for about 5 days
 - coded for about 5 hours -_-
-- and the main thing is MY PRO FRONTEND DESIGNER SAID HONESTLY THIS LOOKS GOOOOD
+- and the main thing is MY PRO FRONTEND DESIGNER FRIEND SAID HONESTLY THIS LOOKS GOOOOD
 
 ## Project 
 ### A Web OS that is named by my nickname
