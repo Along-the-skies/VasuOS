@@ -412,20 +412,56 @@ creditsButton.addEventListener(
 );
 
 
+let minimizedWindows = [];
+
 homeButton.addEventListener(
     "click",
     function() {
 
-        document.querySelectorAll(
-            ".window"
-        ).forEach(
-            function(windowElement) {
+        let visibleWindows =
+            document.querySelectorAll(
+                ".window"
+            );
 
-                windowElement.style.display =
-                    "none";
+        if (minimizedWindows.length === 0) {
 
-            }
-        );
+            minimizedWindows = [];
+
+            visibleWindows.forEach(
+                function(windowElement) {
+
+                    if (
+                        window.getComputedStyle(
+                            windowElement
+                        ).display !== "none"
+                    ) {
+
+                        minimizedWindows.push(
+                            windowElement
+                        );
+
+                        windowElement.style.display =
+                            "none";
+
+                    }
+
+                }
+            );
+
+        } else {
+
+            minimizedWindows.forEach(
+                function(windowElement) {
+
+                    windowElement.style.display =
+                        "block";
+
+                }
+            );
+
+            minimizedWindows = [];
+
+        }
 
     }
 );
